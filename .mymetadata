@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="hadoopsensor"
+  id="myeclipse.1420728427503"
+  context-root="/hadoopsensor"
+  j2ee-spec="5.0"
+  archive="hadoopsensor.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/conf
+END
+hdfs-site.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/conf/hdfs-site.xml
+END
+core-site.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/conf/core-site.xml
+END

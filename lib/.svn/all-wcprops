@@ -1,0 +1,299 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib
+END
+mysql-connector-java-5.1.12-bin.jar
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/mysql-connector-java-5.1.12-bin.jar
+END
+xmlenc-0.52.jar
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/xmlenc-0.52.jar
+END
+htrace-core-3.1.0-incubating.jar
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/htrace-core-3.1.0-incubating.jar
+END
+javassist-3.11.0.GA.jar
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/javassist-3.11.0.GA.jar
+END
+jackson-mapper-asl-1.9.13.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/jackson-mapper-asl-1.9.13.jar
+END
+httpclient-4.2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/httpclient-4.2.2.jar
+END
+protobuf-java-2.5.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/protobuf-java-2.5.0.jar
+END
+asm-3.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/asm-3.2.jar
+END
+commons-io-2.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/commons-io-2.4.jar
+END
+jackson-core-asl-1.9.13.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/jackson-core-asl-1.9.13.jar
+END
+httpclient-4.2.5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/httpclient-4.2.5.jar
+END
+netty-all-4.0.23.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/netty-all-4.0.23.Final.jar
+END
+jetty-6.1.26.jar
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/jetty-6.1.26.jar
+END
+leveldbjni-all-1.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/leveldbjni-all-1.8.jar
+END
+httpcore-4.2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/httpcore-4.2.2.jar
+END
+commons-daemon-1.0.13.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/commons-daemon-1.0.13.jar
+END
+commons-fileupload-1.2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/commons-fileupload-1.2.2.jar
+END
+jersey-core-1.9.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/jersey-core-1.9.jar
+END
+hadoop-hdfs-2.7.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/hadoop-hdfs-2.7.1.jar
+END
+ognl-3.0.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/ognl-3.0.4.jar
+END
+xwork-core-2.3.1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/xwork-core-2.3.1.2.jar
+END
+jetty-util-6.1.26.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/jetty-util-6.1.26.jar
+END
+log4j-1.2.17.jar
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/log4j-1.2.17.jar
+END
+jersey-server-1.9.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/jersey-server-1.9.jar
+END
+freemarker-2.3.18.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/freemarker-2.3.18.jar
+END
+struts2-core-2.3.1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/struts2-core-2.3.1.2.jar
+END
+xml-apis-1.3.04.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/xml-apis-1.3.04.jar
+END
+commons-io-2.0.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/commons-io-2.0.1.jar
+END
+commons-cli-1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/commons-cli-1.2.jar
+END
+guava-11.0.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/guava-11.0.2.jar
+END
+xercesImpl-2.9.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/xercesImpl-2.9.1.jar
+END
+ezmorph-1.0.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/ezmorph-1.0.3.jar
+END
+jsr305-3.0.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/jsr305-3.0.0.jar
+END
+hadoop-hdfs-nfs-2.7.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/hadoop-hdfs-nfs-2.7.1.jar
+END
+commons-httpclient-3.0.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/commons-httpclient-3.0.1.jar
+END
+commons-codec-1.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/commons-codec-1.4.jar
+END
+commons-collections-3.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/commons-collections-3.1.jar
+END
+commons-httpclient.jar
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/commons-httpclient.jar
+END
+json-lib-2.1-jdk15.jar
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/json-lib-2.1-jdk15.jar
+END
+struts2-json-plugin-2.3.1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/struts2-json-plugin-2.3.1.2.jar
+END
+commons-codec-1.7.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/commons-codec-1.7.jar
+END
+commons-logging-1.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/commons-logging-1.1.1.jar
+END
+commons-lang-2.5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/commons-lang-2.5.jar
+END
+commons-logging-1.1.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/commons-logging-1.1.3.jar
+END
+commons-lang-2.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/commons-lang-2.6.jar
+END
+servlet-api-2.5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/servlet-api-2.5.jar
+END
+hadoop-hdfs-2.7.1-tests.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/hadoop-hdfs-2.7.1-tests.jar
+END
+netty-3.6.2.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/netty-3.6.2.Final.jar
+END
+commons-beanutils-1.7.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/lib/commons-beanutils-1.7.0.jar
+END

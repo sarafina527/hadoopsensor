@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/src/com/fyn
+END
+AddSensorAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/src/com/fyn/AddSensorAction.java
+END
+LoginAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/src/com/fyn/LoginAction.java
+END
+AuthorityInterceptor.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/src/com/fyn/AuthorityInterceptor.java
+END
+LogoutAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/src/com/fyn/LogoutAction.java
+END
+SwitchSensorAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/src/com/fyn/SwitchSensorAction.java
+END
+DeleteSensorAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/src/com/fyn/DeleteSensorAction.java
+END
+RegistAction.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/hadoopsensor/!svn/ver/3/hadoopsensor/src/com/fyn/RegistAction.java
+END

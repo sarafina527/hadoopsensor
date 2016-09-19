@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+    
+<struts>
+ 	
+ 	<constant name="struts.enable.DynamicMethodInvocation" value="false"></constant>
+ 	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+ 	
+    <package name="struts2qs" extends="json-default">
+    
+    	<interceptors>
+    		<interceptor name="authority" class="com.fyn.AuthorityInterceptor"></interceptor>
+    	</interceptors>
+
+
+
+        <action name="login" class="com.fyn.LoginAction">
+            <result name="success">/console_1.jsp</result>
+            <result name="login">/login.jsp</result>
+        </action>
+        <action name="logout" class="com.fyn.LogoutAction">
+        	<result name="success_logout">/login.jsp</result>
+        </action>
+        <action name="regist" class="com.fyn.RegistAction">
+        	<result name="success">/console_1.jsp</result>
+        	<result name="error">/error.jsp</result>
+        </action>
+        
+        <action name="addSensor" class="com.fyn.AddSensorAction">
+        	<result name="success">/console_1.jsp</result>
+        	<result name="error">/error.jsp</result>
+        </action>
+        
+		<action name="SwitchSensorAction" class="com.fyn.SwitchSensorAction">
+		</action>
+		
+		<action name="DeleteSensorAction" class="com.fyn.DeleteSensorAction">
+		</action>
+		
+		<action name="opRecordAction" class="com.wy.struts.opRecordAction">
+			<result name="success">/record.jsp</result>
+		</action>
+        
+    </package>
+ 
+</struts>  
