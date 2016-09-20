@@ -10,10 +10,9 @@ function temp(){
             dataSource: {
                 "chart": {
                     "caption": "气温监测",
-                    "subcaption": "",
-                    "lowerLimit": "-10",//最小值
-                    "upperLimit": "0", //最大值          
-                    "decimals" : "1",//最小间隔
+                    "lowerLimit": "0",//最小值
+                    "upperLimit": "100", //最大值          
+                    "decimals" : "2",//小数
                     "numberSuffix": "°C",//单位
                     "showhovereffect": "1",//鼠标移上的特效
                     "thmFillColor": "#6d5799",//液体颜色
@@ -22,27 +21,16 @@ function temp(){
                     "theme" : "fint",
                     "bgCOlor": "#ffffff"
                 },
-                "value": "-6",
-                
+                "value": "30",
             },
             "events" :{
                 "initialized": function (evt, arg) {
                     var dataUpdate = setInterval(function () {
-                        var value,
-                            prevTemp = FusionCharts.items["temp"].getData(),
-                            mainTemp = (Math.random()*10)* (-1),
-                            diff = Math.abs(prevTemp - mainTemp);
-                        
-                        diff = diff > 1 ? (Math.random()*1) : diff;
-                        if(mainTemp > prevTemp){
-                            value = prevTemp + diff;
-                        }else{
-                            value = prevTemp - diff;
-                        }                            
-
-                        FusionCharts.items["temp"].feedData("&value="+value);//传数据
-                            
-                    }, 1000);
+                        var requestData = {nodeId:$('.nodelist li.active span').text(),type:"temp"};
+                        $.get('servlet/realtimeValue',requestData,function(data){
+                            FusionCharts.items["temp"].feedData("&value="+data);//传数据
+                        });    
+                    }, 5000);//设置更新频率5000ms
                     
                 },
                 
@@ -62,29 +50,27 @@ function humi(){
             dataSource: {
                 "chart": {
                     "caption": "湿度监测",
-                    "subcaption": "",
-                    "subcaptionFontBold": "0",
                     "lowerLimit": "0",
-                    "upperLimit": "120",
-                    "lowerLimitDisplay": "Empty",
-                    "upperLimitDisplay": "Full",
-                    "numberSuffix": " ltrs",
+                    "upperLimit": "100",
+                    "numberSuffix": "g/m3",
                     "showValue": "0",
                     "showhovereffect": "1",
                     "bgCOlor": "#ffffff",
                     "borderAlpha": "0",
-                    "cylFillColor": "#008ee4"
+                    "cylFillColor": "#008ee4",
+                    "valueFontColor" : "#000000",//字体颜色
+                    "showValue":true
                 },
-                "value": "110"
+                "value": "50"
             },
             "events":{
                 "rendered": function(evtObj, argObj){
                     setInterval(function () {
-                        (fuelVolume < 10) ? (fuelVolume = 110) : "";
-                        var consVolume = fuelVolume -(Math.floor(Math.random() * 3));
-                        FusionCharts("humi").feedData("&value=" + consVolume);
-                        fuelVolume = consVolume;
-                    }, 1000);
+                        var requestData = {nodeId:$('.nodelist li.active span').text(),type:"humi"};
+                        $.get('servlet/realtimeValue',requestData,function(data){
+                            FusionCharts.items["humi"].feedData("&value="+data);//传数据
+                        });
+                    }, 5000);
                 }
             }
         }).render();
@@ -102,8 +88,8 @@ function light() {
         dataSource: {
             "chart": {
                 "caption": "光照监测",
-                "upperlimit": "-5",
-                "lowerlimit": "-60",
+                "upperlimit": "25000",
+                "lowerlimit": "200",
                 "captionPadding":"30",
                 "showshadow":"0",
                 "showvalue": "1",
@@ -122,26 +108,28 @@ function light() {
                 "toolTipBgAlpha" : "80",
                 "toolTipBorderRadius" : "2",
                 "toolTipPadding" : "5",
+                "valueFontColor" : "#000000",//字体颜色
+                "showValue":true
             },
             "colorrange": {
                 "color": [
                     {
-                        "minvalue": "-60",
-                        "maxvalue": "-35",
-                        "label": "Problem detected!",
+                        "minvalue": "25000",
+                        "maxvalue": "30000",
+                        "label": "超出上界！",
                         "code": "#ff0000"
                     }, 
                     {
-                        "minvalue": "-35",
-                        "maxvalue": "-25",
-                        "label": "Alert!",
-                        "code": "#ff9900"
+                        "minvalue": "200",
+                        "maxvalue": "25000",
+                        "label": "指标正常",
+                        "code": "#00ff00"
                     }, 
                     {
-                        "minvalue": "-25",
-                        "maxvalue": "-5",
-                        "label": "All well!",
-                        "code": "#00ff00"
+                        "minvalue": "",
+                        "maxvalue": "200",
+                        "label": "超出下界",
+                        "code": "#ff9900"
                     }
                 ]
             },
@@ -150,9 +138,11 @@ function light() {
         "events":{
             "rendered": function(evtObj, argObj){
                 setInterval(function () {
-                    var num = (Math.floor(Math.random() * 55)*-1) -5;
-                    FusionCharts("light").feedData("&value=" + num);
-                }, 1000);
+                    var requestData = {nodeId:$('.nodelist li.active span').text(),type:"light"};
+                    $.get('servlet/realtimeValue',requestData,function(data){
+                        FusionCharts.items["light"].feedData("&value="+data);//传数据
+                    });
+                }, 5000);
             }
         }
     });
@@ -163,42 +153,36 @@ function solidtemp() {
     var chart = new FusionCharts({
         type: 'thermometer',
         renderAt: 'chart-container4',
-        id  : 'myThm',
+        id  : 'soiltemp',
         width: '200',
         height: '250',
         dataFormat: 'json',
         dataSource: {
             "chart": {
                 "caption": "土壤温度监测",
-                "subcaption": "",
-                "lowerLimit": "-10",
-                "upperLimit": "0",
+                "lowerLimit": "0",
+                "upperLimit": "100",
                 "numberSuffix": "°C",
-                "decimals" : "1",
+                "decimals" : "2",
                 "showhovereffect": "1",
                 "thmFillColor": "#e44b23",                
                 "thmOriginX": "100",
                 "theme" : "fint",
-                "bgcolor":"#ffffff"
+                "bgcolor":"#ffffff",
+                "valueFontColor" : "#000000",//字体颜色
+                "showValue":true
             },
-            "value": "-6"
+            "value": "40"
         },
         "events" :{
             "initialized": function (evt, arg) {
                 var dataUpdate = setInterval(function () {
-                    var value,
-                        prevTemp = FusionCharts.items["myThm"].getData(),
-                        mainTemp = (Math.random()*10)* (-1),
-                        diff = Math.abs(prevTemp - mainTemp);
+                    var requestData = {nodeId:$('.nodelist li.active span').text(),type:"soiltemp"};
+                    $.get('servlet/realtimeValue',requestData,function(data){
+                        FusionCharts.items["soiltemp"].feedData("&value="+data);//传数据
+                    });
                     
-                    diff = diff > 1 ? (Math.random()*1) : diff;
-                    if(mainTemp > prevTemp){
-                        value = prevTemp + diff;
-                    }else{
-                        value = prevTemp - diff;
-                    }                            
-                    FusionCharts.items["myThm"].feedData("&value="+value);
-                }, 3000);
+                }, 5000);
             }  
         }
     })
@@ -210,36 +194,32 @@ function solidhumi(){
         fuelWidget = new FusionCharts({
             type: 'cylinder',
             dataFormat: 'json',
-            id: 'humi',
+            id: 'soilhumi',
             renderAt: 'chart-container5',
             width: '200',
             height: '250',
             dataSource: {
                 "chart": {
                     "caption": "土壤湿度监测",
-                    "subcaption": "",
-                    "subcaptionFontBold": "0",
                     "lowerLimit": "0",
-                    "upperLimit": "120",
-                    "lowerLimitDisplay": "Empty",
-                    "upperLimitDisplay": "Full",
-                    "numberSuffix": " ltrs",
-                    "showValue": "0",
+                    "upperLimit": "100",
+                    "numberSuffix": "g/m3",
                     "showhovereffect": "1",
                     "bgCOlor": "#ffffff",
-                    "borderAlpha": "0",
-                    "cylFillColor": "#f1e05a"
+                    "cylFillColor": "#f1e05a",
+                    "valueFontColor" : "#000000",//字体颜色
+                    "showValue":true
                 },
                 "value": "110"
             },
             "events":{
                 "rendered": function(evtObj, argObj){
                     setInterval(function () {
-                        (fuelVolume < 10) ? (fuelVolume = 110) : "";
-                        var consVolume = fuelVolume -(Math.floor(Math.random() * 3));
-                        FusionCharts("humi").feedData("&value=" + consVolume);
-                        fuelVolume = consVolume;
-                    }, 1000);
+                        var requestData = {nodeId:$('.nodelist li.active span').text(),type:"soilhumi"};
+                        $.get('servlet/realtimeValue',requestData,function(data){
+                            FusionCharts.items["soilhumi"].feedData("&value="+data);//传数据
+                        });
+                    }, 5000);
                 }
             }
         }).render();

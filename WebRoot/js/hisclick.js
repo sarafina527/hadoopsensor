@@ -14,5 +14,5 @@ function clickNode(){
 // }
 $(document).ready(function(){
 	$('.nodelist li').bind('click',clickNode);
-	$('.node')
+	$('.nodelist').children().eq(0).addClass('active');
 });

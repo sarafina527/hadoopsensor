@@ -26,6 +26,11 @@
     <servlet-name>HistoryServlet</servlet-name>
     <servlet-class>com.wy.servlet.HistoryServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>realtimeValue</servlet-name>
+    <servlet-class>com.wy.servlet.realtimeValue</servlet-class>
+  </servlet>
+
 
 
 
@@ -37,6 +42,10 @@
   <servlet-mapping>
     <servlet-name>HistoryServlet</servlet-name>
     <url-pattern>/servlet/HistoryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>realtimeValue</servlet-name>
+    <url-pattern>/servlet/realtimeValue</url-pattern>
   </servlet-mapping>
   
   <welcome-file-list>

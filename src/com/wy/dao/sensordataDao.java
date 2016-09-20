@@ -1,6 +1,7 @@
 package com.wy.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,11 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.wy.db.DBUtil;
-import com.wy.model.sensordata1;
+import com.wy.model.sensordata;
 
 
 
-public class sensordata1Dao {
+public class sensordataDao {
 	
 	public void addSensorinfo_1(){
 		Connection conn = DBUtil.getConnection();
@@ -25,21 +26,18 @@ public class sensordata1Dao {
 		Connection conn = DBUtil.getConnection();
 	}
 	//倒序查询所有
-	public List<sensordata1> query() throws Exception{
+	public List<sensordata> queryByNodeId(int nodeId) throws Exception{
 		
-		List<sensordata1> result = new ArrayList<sensordata1>();
-		
-		String sql="select* from sensordata1 order by id desc";
+		List<sensordata> result = new ArrayList<sensordata>();		
 		Connection conn = DBUtil.getConnection();
-		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery(sql);
-		
-		
-		sensordata1 s = null;
-		
+		String sql = "select * from sensordata where node_id = ? order by id desc";		
+		PreparedStatement prestmt = conn.prepareStatement(sql);
+		prestmt.setInt(1, nodeId);
+		ResultSet rs = prestmt.executeQuery();		
+		sensordata s = null;		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		while(rs.next()){
-			s = new sensordata1();
+			s = new sensordata();
 			s.setId(rs.getInt("id"));
 			s.setDate(sdf.parse(rs.getString("date")));//日期格式转换
 			s.setTime(rs.getString("time"));
@@ -47,30 +45,28 @@ public class sensordata1Dao {
 			s.setTemp(rs.getFloat("temp"));
 			s.setHumi(rs.getFloat("humi"));
 			s.setSoiltemp(rs.getFloat("soiltemp"));
-			s.setSoilhumi(rs.getFloat("soilhumi"));
-			
-			result.add(s);
-			
-		}
-		
+			s.setSoilhumi(rs.getFloat("soilhumi"));	
+			s.setNodeId(nodeId);
+			result.add(s);			
+		}		
 		return result;
 	}
 	//按日期查询
-	public List<sensordata1> queryByDate(String stdate,String enddate) throws Exception{
+	public List<sensordata> queryByNodeIdAndDate(int nodeId,String stdate,String enddate) throws Exception{
 		
-		List<sensordata1> result = new ArrayList<sensordata1>();
-		
-		String sql = "select * from sensordata1 where DATE(date) between '"+stdate+"' and '"+enddate+"' order by id;";
+		List<sensordata> result = new ArrayList<sensordata>();
+		String sql = "select * from sensordata where node_id = ? and DATE(date) between ? and ? order by id desc;";
 		Connection conn = DBUtil.getConnection();
-		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery(sql);
+		PreparedStatement prestmt = conn.prepareStatement(sql);
+		prestmt.setInt(1, nodeId);
+		prestmt.setString(2, stdate);
+		prestmt.setString(3, enddate);
+		ResultSet rs = prestmt.executeQuery();	
 		
-		
-		sensordata1 s = null;
-		
+		sensordata s = null;		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		while(rs.next()){
-			s = new sensordata1();
+			s = new sensordata();
 			s.setId(rs.getInt("id"));
 			s.setDate(sdf.parse(rs.getString("date")));//日期格式转换
 			s.setTime(rs.getString("time"));
@@ -80,36 +76,35 @@ public class sensordata1Dao {
 			s.setSoiltemp(rs.getFloat("soiltemp"));
 			s.setSoilhumi(rs.getFloat("soilhumi"));
 			
-			result.add(s);
-			
-		}
-		
+			result.add(s);			
+		}		
 		return result;
 	}
 	//todo
-	public sensordata1 get(){
+	public sensordata get(){
 		Connection conn = DBUtil.getConnection();
 		return null;
 	}
-	//查询top1 温度
-	public float queryTopTemp() throws SQLException{
-		String sql = "select temp from sensordata1 order by id desc limit 1";
+	//查询top1 各个指标的值
+	public float queryTopByTypeAndNodeId(String type,int nodeId) throws SQLException{
+		String sql = "select * from sensordata where node_id=? order by id desc limit 1";
 		Connection conn = DBUtil.getConnection();
-		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery(sql);
-		float temp=0;
+		PreparedStatement prestmt = conn.prepareStatement(sql);
+		prestmt.setInt(1, nodeId);
+		ResultSet rs = prestmt.executeQuery();
+		float value=0;
 		while(rs.next()){
-			temp = rs.getFloat("temp");
+			value = rs.getFloat(type);
 			break;
 		}
-		return temp;
+		return value;
 		
 	}
 	
 	
 	/*------------------------平均值---------------------------*/
 	public List<Float> getAverageLight() throws SQLException{
-		String sql="select AVG(light) avgoflight from sensordata1";
+		String sql="select AVG(light) avgoflight from sensordata";
 		Connection conn = DBUtil.getConnection();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
@@ -123,7 +118,7 @@ public class sensordata1Dao {
 		return avgoflight;
 	}
 	public List<Float> getAverageTemp() throws SQLException{
-		String sql="select AVG(temp) avgoftemp from sensordata1";
+		String sql="select AVG(temp) avgoftemp from sensordata";
 		Connection conn = DBUtil.getConnection();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
@@ -137,7 +132,7 @@ public class sensordata1Dao {
 		return avgoftemp;
 	}
 	public List<Float> getAverage(String type,String stdate,String enddate) throws SQLException{
-		String sql="select AVG("+type+") avgoftemp from sensordata1 where DATE(date) between '"+stdate+"' and '"+enddate+"'";
+		String sql="select AVG("+type+") avgoftemp from sensordata where DATE(date) between '"+stdate+"' and '"+enddate+"'";
 		Connection conn = DBUtil.getConnection();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
@@ -151,7 +146,7 @@ public class sensordata1Dao {
 		return avgoftemp;
 	}
 	public List<Float> getAverageHumi() throws SQLException{
-		String sql="select AVG(humi) avgofhumi from sensordata1";
+		String sql="select AVG(humi) avgofhumi from sensordata";
 		Connection conn = DBUtil.getConnection();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
@@ -165,7 +160,7 @@ public class sensordata1Dao {
 		return avgofhumi;
 	}
 	public List<Float> getAverageSoiltemp() throws SQLException{
-		String sql="select AVG(soiltemp) avgofsoiltemp from sensordata1";
+		String sql="select AVG(soiltemp) avgofsoiltemp from sensordata";
 		Connection conn = DBUtil.getConnection();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
@@ -179,7 +174,7 @@ public class sensordata1Dao {
 		return avgofsoiltemp;
 	}
 	public List<Float> getAverageSoilhumi() throws SQLException{
-		String sql="select AVG(soilhumi) avgofsoilhumi from sensordata1";
+		String sql="select AVG(soilhumi) avgofsoilhumi from sensordata";
 		Connection conn = DBUtil.getConnection();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
