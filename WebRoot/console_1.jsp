@@ -39,7 +39,7 @@
 					{
 					    response.sendRedirect("login.jsp");
 					}else{
-						List<Integer> nodes = NodeDao.getNodesByUser(u.getUsername());
+						List<Integer> nodes = (List)session.getAttribute("nodes");;
         				for(int i=0;i<nodes.size();i++){
 	        				%>
 	        				<li>节点<%=nodes.get(i)%></li>

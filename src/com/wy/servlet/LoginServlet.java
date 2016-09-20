@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.wy.dao.NodeDao;
 import com.wy.dao.userDao;
 import com.wy.model.Users;
 
@@ -83,8 +84,17 @@ public class LoginServlet extends HttpServlet {
 			//判断用户名和密码是否合法
 			if(password.equals(sp))
 			{
-				request.getSession().setAttribute("user", result.get(0));
-				response.sendRedirect(request.getContextPath()+"/console_1.jsp");
+				u = result.get(0);
+				request.getSession().setAttribute("user", u);
+				List<Integer> nodes = null;
+				try {
+					nodes = NodeDao.getNodesByUser(u.getUsername());
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				request.getSession().setAttribute("nodes", nodes);
+				response.sendRedirect(request.getContextPath()+"/realtime.jsp");
 			}
 			else
 			{
