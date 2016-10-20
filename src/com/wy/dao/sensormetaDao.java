@@ -18,11 +18,10 @@ public class sensormetaDao {
 		
 		List<sensormeta> result = new ArrayList<sensormeta>();
 		String sql = "select * from sensormeta where node_id="+node_id;
-		
+//		System.out.println(sql);
 		Connection conn = DBUtil.getConnection();
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
-//		System.out.println("query"+sql);
 		sensormeta m = null;
 		while(rs.next()){
 			m = new sensormeta();
@@ -36,7 +35,7 @@ public class sensormetaDao {
 			m.setMin_alert(rs.getInt("min_alert"));
 			m.setSwitch_state(rs.getString("switch_state"));
 			m.setStatus(rs.getString("status"));
-			
+			System.out.println(rs.getString("status"));
 			result.add(m);
 			
 		}
@@ -100,4 +99,11 @@ public class sensormetaDao {
 		
 	}
 	
+	
+	public void UpdateMaxalertBySensorId(String maxAlert,String sensorId) throws SQLException{
+		Connection conn = DBUtil.getConnection();
+		Statement stmt = conn.createStatement();
+		String sql = "update sensor set max_alert="+maxAlert+" where sensor_id= "+sensorId;  
+		stmt.executeUpdate(sql); 
+	}
 }
